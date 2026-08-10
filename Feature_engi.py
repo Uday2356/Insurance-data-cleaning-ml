@@ -120,6 +120,26 @@ print(final_df)
 
 
 
+from sklearn.model_selection import train_test_split
+
+x = final_df.drop('charges' , axis =1) #"we separate the input features so we drop charges it is output feature "
+
+y = final_df['charges'] # we take only the output part in it.
+ 
+x_train , x_test , y_train , y_test = train_test_split(x,y,test_size = 0.20,random_state=42) # we split the data in to part 
+
+
+# x_train  = The input column in the train data 
+# x_test = The input columns in Test data 
+# y_train = The label for output columns in Train data 
+# y_test = The output column for test data help in checking accuracy.
+
+
+from sklearn.linear_model import LinearRegression # we import the linear regression model 
+
+model = LinearRegression()
+
+model.fit(x_train,y_train) # we pass xtrain , ytrain data into model 
 
 
 
